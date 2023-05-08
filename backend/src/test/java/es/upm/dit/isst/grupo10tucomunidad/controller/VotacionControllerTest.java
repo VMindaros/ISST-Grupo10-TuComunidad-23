@@ -54,6 +54,11 @@ public class VotacionControllerTest {
  
         Votacion newVotacion = new Votacion(1L, "Voto 1",1L, 1L);
         when(votacionRepository.save(newVotacion)).thenReturn(newVotacion);
+        ResponseEntity<Votacion> response = votacionController.create(newVotacion);
+
+        assertThat(response.getStatusCode(), is(HttpStatus.CREATED));
+        assertThat(response.getHeaders().getLocation(), is(new URI("/votos")));
+        assertThat(response.getBody(), is(newVotacion));
     }
 
     
