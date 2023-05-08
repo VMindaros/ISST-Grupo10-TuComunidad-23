@@ -57,7 +57,7 @@ public class VotacionControllerTest {
         ResponseEntity<Votacion> response = votacionController.create(newVotacion);
 
         assertThat(response.getStatusCode(), is(HttpStatus.CREATED));
-        assertThat(response.getHeaders().getLocation(), is(new URI("/votos")));
+        assertThat(response.getHeaders().getLocation(), is(new URI("/juntas/votos/")));
         assertThat(response.getBody(), is(newVotacion));
     }
 
