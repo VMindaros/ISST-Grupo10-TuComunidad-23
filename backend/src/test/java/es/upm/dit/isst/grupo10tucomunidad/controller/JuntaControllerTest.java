@@ -1,8 +1,8 @@
 package es.upm.dit.isst.grupo10tucomunidad.controller;
 
-
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
+import static org.mockito.ArgumentMatchers.any; // se cambia la importación a ArgumentMatchers
 import static org.mockito.Mockito.*;
 
 import java.net.URI;
@@ -49,18 +49,23 @@ public class JuntaControllerTest {
 
     }
 
-    //@Test
-   // public void testCrearJuntas() throws URISyntaxException {
- 
-     //   Junta newJunta = new Junta(1L, "Nueva junta", "Descripción nueva junta", LocalDateTime.now(), 1L);
-
-       //  when(juntaRepository.save(newJunta)).thenReturn(newJunta);
-      //   ResponseEntity<Noticia> response = juntaController.create(newJunta);
-//
-    ///    assertThat(response.getStatusCode(), is(HttpStatus.CREATED));
-   //     assertThat(response.getHeaders().getLocation(), is(new URI("/juntas")));
-     ///   assertThat(response.getBody(), is(newJunta));
- //  }
-
-
+    @Test
+    public void testCrearJunta() throws URISyntaxException {
+        Junta junta = new Junta();
+        junta.setTitulo("Nueva junta");
+        junta.setDescripcion("Cuerpo de la nueva junta");
+        
+        when(juntaRepository.save(any(Junta.class))).thenAnswer(invocation -> {
+            Junta savedJunta = invocation.getArgument(0);
+            savedJunta.setId(1L); // Establecer un valor para la propiedad id
+            return savedJunta;
+        });
+        
+        ResponseEntity<Junta> response = juntaController.create(junta);
+        
+        assertThat(response.getStatusCode(), is(HttpStatus.CREATED));
+        assertThat(response.getBody().getId(), notNullValue()); // Verificar que la propiedad id no sea nula
+        assertThat(response.getBody().getTitulo(), is("Nueva junta"));
+        assertThat(response.getBody().getDescripcion(), is("Cuerpo de la nueva junta"));
+    }
 }
