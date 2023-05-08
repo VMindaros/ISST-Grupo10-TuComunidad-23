@@ -54,5 +54,11 @@ public class ComentarioControllerTest {
  
         Comentario newComentario = new Comentario(1L, "Nuevo Comentario",1L, 1L);
         when(comentarioRepository.save(newComentario)).thenReturn(newComentario);
+        ResponseEntity<Comentario> response = comentarioController.create(newComentario);
+
+        assertThat(response.getStatusCode(), is(HttpStatus.CREATED));
+        assertThat(response.getHeaders().getLocation(), is(new URI("/sugerencias/responder/")));
+        assertThat(response.getBody(), is(newComentario));
+
     }
 }
