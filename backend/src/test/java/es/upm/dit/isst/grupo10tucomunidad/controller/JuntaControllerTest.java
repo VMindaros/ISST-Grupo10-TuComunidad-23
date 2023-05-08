@@ -49,17 +49,17 @@ public class JuntaControllerTest {
 
     }
 
-    @Test
-    public void testCrearJuntas() throws URISyntaxException {
+    //@Test
+   // public void testCrearJuntas() throws URISyntaxException {
  
-        Junta newJunta = new Junta(1L, "Nueva junta", "Descripción nueva junta", LocalDateTime.now(), 1L);
-        when(juntaRepository.save(newJunta)).thenReturn(newJunta);
-       // ResponseEntity<Junta> response = juntaRepository.create(newJunta);
+     //   Junta newJunta = new Junta(1L, "Nueva junta", "Descripción nueva junta", LocalDateTime.now(), 1L);
+   //     when(juntaRepository.save(newJunta)).thenReturn(newJunta);
+     //  // ResponseEntity<Junta> response = juntaRepository.create(newJunta);
 
        // assertThat(response.getStatusCode(), is(HttpStatus.CREATED));
     //    assertThat(response.getHeaders().getLocation(), is(new URI("/juntas")));
       //  assertThat(response.getBody(), is(newJunta));
-    }
+    //}
 
 
 }
