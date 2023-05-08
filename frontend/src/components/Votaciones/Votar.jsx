@@ -13,7 +13,7 @@ const Votar = (props) => {
     const votoslist = props.votoslist;
     const userData = props?.userData;
     const userId = userData?.id; // a cambiar por el id de usuario de la sesion activa
-    const objetvoto = votoslist?.[juntaId-1];
+
 
     const handleVote = (e) => {
         setVote(e.target.value);
