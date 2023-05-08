@@ -14,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import es.upm.dit.isst.grupo10tucomunidad.security.jwt.AuthEntryPointJwt;
 import es.upm.dit.isst.grupo10tucomunidad.security.jwt.AuthTokenFilter;
@@ -59,14 +60,13 @@ public class WebSecurityConfig {
 			.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 			.authorizeRequests().antMatchers("/api/auth/**").permitAll()
+			.antMatchers("/peticionregistro/**").permitAll()
 			.antMatchers("/api/test/**").permitAll()
 			.antMatchers("/h2-console/**").permitAll()
 			.anyRequest().authenticated();
 		
         http.headers(headers -> headers.frameOptions().sameOrigin());
-
 		http.authenticationProvider(authenticationProvider());
-
 		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
 		return http.build();
