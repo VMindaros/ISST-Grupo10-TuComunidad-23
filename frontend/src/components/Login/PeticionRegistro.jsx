@@ -76,7 +76,7 @@ const PeticionRegistro = (props) => {
                 width: "100vw",
             }}>
 
-            <Container className="wrapper py-4 w-50 my-3" style={{ textAlign: 'center', zIndex: 1, backgroundColor: 'rgba(0, 0, 0, 0.5)', borderRadius: '10px', }}>
+            <Container className="wrapper py-4 w-50 my-3" style={{ textAlign: 'center', zIndex: 1, backgroundColor: 'rgba(0, 0, 0, 0.5)', borderRadius: '10px', maxHeight: '100vh', overflowY: 'scroll' }}>
                 <Row className="justify-content-center">
                     <Col md={6} className="h3 w-100 text-center text-white mb-4">
                         Petición de registro a tuComunidad
