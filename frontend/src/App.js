@@ -18,6 +18,7 @@ import UserService from './services/user.service';
 import { useRef } from 'react';
 import GestionUsuario from './components/Administrador/GestionUsuario';
 import VerUnUsuario from './components/Administrador/VerUnUsuario';
+import PeticionRegistro from './components/Login/PeticionRegistro';
 
 function App() {
     const location = useLocation();
@@ -155,6 +156,7 @@ function App() {
 
                     <Route path="/contacto" element={<VerContacto usuarioslist={usuarioslist}/>} />
                     <Route path="/login" element={<Login location={location}/>} />
+                    <Route path="peticionregistro" element={<PeticionRegistro />}/>
                     <Route path="/register" element={<Register/>} />
                     <Route path="/*" element={<Navigate to="/noticias"/>} />
                 </Routes>

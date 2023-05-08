@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -25,7 +27,8 @@ public class PeticionVecino {
     @NotBlank
     private String password;
 
-    @NotBlank
+    @Min(0)
+    @Max(10)
     private int piso;
 
     @NotBlank
