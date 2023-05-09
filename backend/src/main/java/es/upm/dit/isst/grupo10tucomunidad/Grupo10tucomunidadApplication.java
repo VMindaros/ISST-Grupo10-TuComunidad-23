@@ -135,6 +135,19 @@ public class Grupo10tucomunidadApplication {
 		};
 	}
 
+
+	@Bean
+	public CommandLineRunner initialJuntaData(JuntaRepository juntaRepository) {
+		return (args) -> {
+			juntaRepository.save(new Junta(null,
+					"Junta extraordinaria para la remodelación de la fachada",
+					"La empresa a la que hemos pedido presupuesto nos ha dicho que el precio total era de 54875€, lo que supondría"
+					+"una derrama de 3429€ por propietario. En esta junta se va a votar si se está a favor o en contra de contratar la obra.",
+					LocalDateTime.now(),
+					1L));
+		};
+	}
+
 	@Bean
 	public CommandLineRunner initialUsuarioData(UsuarioRepository usuarioRespository) {
 		return (args) -> {
