@@ -153,7 +153,7 @@ function App() {
                     <Route path="/noticias/:noticiaId" element={<UnaNoticia noticiaslist={noticiaslist} />} />
                     <Route path="/noticias/crear" element={<CrearNoticias userData={user.current} />} />
                   
-                    <Route path="/sugerencias" element={<VerSugerencias sugerenciaslist={sugerenciaslist} comentariolist={comentariolist} />} />
+                    <Route path="/sugerencias" element={<VerSugerencias sugerenciaslist={sugerenciaslist} comentariolist={comentariolist} usuarioslist={usuarioslist}/>} />
                     <Route path="/sugerencias/crear" element={<CrearSugerencias userData={user.current}/>} />
                     <Route path="/sugerencias/:sugerenciaId" element={<CrearComentario userData={user.current}/>} />
                     

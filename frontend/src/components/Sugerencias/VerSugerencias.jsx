@@ -9,6 +9,17 @@ const VerSugerencias = (props) => {
     useRequireAuth();
     const comentariolist = props.comentariolist
     const sugerenciaslist = props.sugerenciaslist
+    const usuarioslist = props.usuarioslist
+
+    const getSugerenciaCreatorName = (sugerencia) => {
+        const creator = usuarioslist.find(usuario => usuario.id === sugerencia.userId);
+        if (creator) {
+            return `Vecino del ${creator.datosVecino.piso}${creator.datosVecino.letra}`;
+        } else {
+            return "Usuario desconocido";
+        }
+    }
+
     return (
         <Container style={{ maxHeight: '100vh', overflowY: 'scroll' }}>
             <Row className="my-2">
@@ -27,7 +38,7 @@ const VerSugerencias = (props) => {
                             <Card.Body>
                                 <Card.Title href="#">{sugerenciasItem.titulo}</Card.Title>
                                 <Card.Subtitle className="text-muted">
-                                    <p>Creado el {sugerenciasItem.fechaCreacion} por Vecino</p>
+                                    <p>Creado el {sugerenciasItem.fechaCreacion} por {getSugerenciaCreatorName(sugerenciasItem)}</p>
 
                                 </Card.Subtitle>
                                 <Card.Text>{sugerenciasItem.descripcion}</Card.Text>
