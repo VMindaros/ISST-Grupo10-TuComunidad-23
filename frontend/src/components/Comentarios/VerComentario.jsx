@@ -18,10 +18,10 @@ const VerComentario = (props) => {
                         {(comentarioItem.sugerenciaId === id ?
                             <Row className="my-2" >
                                 <Col>
-                                    <Card className="flex-fill text-wrap">
+                                    <Card className="flex-fill text-wrap" style={{ backgroundColor: '#f2f2f2' }}>
                                         <Card.Body >
                                             <Card.Subtitle className="text-muted">Vecino respondió:</Card.Subtitle>
-                                            <Card.Text className="text-truncate">{comentarioItem.descripcion}</Card.Text>
+                                            <Card.Text className="text-truncate"style={{fontWeight: 700}}>{comentarioItem.descripcion}</Card.Text>
                                         </Card.Body>
                                     </Card>
                                 </Col>
