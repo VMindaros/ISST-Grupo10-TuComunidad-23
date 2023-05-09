@@ -7,7 +7,6 @@ import static org.mockito.Mockito.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,6 +58,26 @@ public class VotacionControllerTest {
         assertThat(response.getStatusCode(), is(HttpStatus.CREATED));
         assertThat(response.getHeaders().getLocation(), is(new URI("/juntas/votos/")));
         assertThat(response.getBody(), is(newVotacion));
+    }
+
+    @Test
+    public void testUnVotoPorUser() {
+        List<Votacion> votaciones = new ArrayList<>();
+        votaciones.add(new Votacion(1L, "Voto 1", 1L, 1L));
+        votaciones.add(new Votacion(2L, "Voto 2", 2L, 2L));
+
+        when(votacionRepository.findAll()).thenReturn(votaciones);
+        List<Votacion> result = votacionController.readAll();
+
+        Votacion duplicado = new Votacion(1L, "Voto 1", 1L, 1L);
+        votaciones.add(duplicado);
+
+        assertThat(result, hasSize(3));
+        assertThat(result.get(0).getId(), is(1L));
+        assertThat(result.get(0).getVoto(), is("Voto 1"));
+        assertThat(result.get(0).getJuntaId(), is(1L));
+        assertThat(result.get(0).getUserId(), is(1L));
+        assertThat(result, not(contains(duplicado)));
     }
 
     

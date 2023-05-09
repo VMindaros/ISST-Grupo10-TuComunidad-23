@@ -36,6 +36,10 @@ public class VotacionController {
     @PostMapping("/juntas/votos")
     @PreAuthorize("hasRole('ADMIN') or hasRole('PRESIDENTE') or hasRole('VECINO')")
     ResponseEntity<Votacion> create(@RequestBody Votacion newVotacion) throws URISyntaxException {
+        List<Votacion> votosExistente = votacionRepository.findByUserIdAndJuntaId(newVotacion.getUserId(), newVotacion.getJuntaId());
+        if (!votosExistente.isEmpty()) {
+            return null;
+        }
         Votacion res = votacionRepository.save(newVotacion);
         return ResponseEntity.created(new URI("/juntas/votos/")).body(res);
     }
