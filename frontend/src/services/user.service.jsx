@@ -68,6 +68,14 @@ class UserService {
         });
         return 1;
     }
+
+    async postPeticion(id) {
+        const response = await fetch(API_URL + `admisionregistro/${id}`, {
+            method: 'POST',
+            headers: authHeader()
+        });
+        return 1;
+    }
 }
 
 const userServiceInstance = new UserService();

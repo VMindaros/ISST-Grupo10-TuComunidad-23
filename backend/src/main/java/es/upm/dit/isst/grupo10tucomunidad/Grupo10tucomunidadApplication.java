@@ -182,21 +182,21 @@ public class Grupo10tucomunidadApplication {
 		return (args) -> {
 			prRepo.save(new PeticionVecino(
 					"444444444",
-					"{bcrypt}$2a$12$WpaRpwjONum/Z3WXgikhaeJEqIN3DwxJfFH8h2hxw0xvZ2rmVaEjC",
+					"$2a$12$WpaRpwjONum/Z3WXgikhaeJEqIN3DwxJfFH8h2hxw0xvZ2rmVaEjC",
 					9,
 					"A",
 					"53691215S",
 					null));
 			prRepo.save(new PeticionVecino(
 					"555555555",
-					"{bcrypt}$2a$12$WpaRpwjONum/Z3WXgikhaeJEqIN3DwxJfFH8h2hxw0xvZ2rmVaEjC",
+					"$2a$12$WpaRpwjONum/Z3WXgikhaeJEqIN3DwxJfFH8h2hxw0xvZ2rmVaEjC",
 					8,
 					"B",
 					"44037514N",
 					null));
 			prRepo.save(new PeticionVecino(
 					"666666666",
-					"{bcrypt}$2a$12$WpaRpwjONum/Z3WXgikhaeJEqIN3DwxJfFH8h2hxw0xvZ2rmVaEjC",
+					"$2a$12$WpaRpwjONum/Z3WXgikhaeJEqIN3DwxJfFH8h2hxw0xvZ2rmVaEjC",
 					7,
 					"C",
 					"28080969Q",

@@ -12,7 +12,7 @@ const AdminisionUsuario = (props) => {
     const [flip, setFlip] = useState(true);
 
     useEffect(() => {
-        
+
     }, [flip]);
 
     const base64ToBlob = (base64, contentType = 'application/pdf', sliceSize = 512) => {
@@ -45,9 +45,9 @@ const AdminisionUsuario = (props) => {
         navigate("/admisionregistro");
     };
 
-    const handleAccept = async (e, id) => {
-        setFlip(!flip);
-        navigate("/admisionregistro")
+    const handleAccept = async (id) => {
+        const a = await UserService.postPeticion(id);
+        handleReject(id);
     };
 
     return (
@@ -89,7 +89,7 @@ const AdminisionUsuario = (props) => {
                                 transform: 'translateY(-50%)',
                                 fontSize: '2rem'
                             }}>
-                                <CheckSquare color="green" onClick={() => { }} />
+                                <CheckSquare color="green" onClick={() => handleAccept(peticionItem.id)} />
                             </div>
                             <div style={{
                                 position: 'absolute',
