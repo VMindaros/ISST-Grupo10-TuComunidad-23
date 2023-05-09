@@ -25,32 +25,34 @@ const GestionUsuario = (props) => {
                 </Col>
             </Row>
             <Row>
-                {usuarioslist.slice().reverse().map((usuarioItem) => (
-                    <Col key={usuarioItem.id} md={4}>
-                        {/* Poner un link para modificar */}
-                        <Link to={`/gestionusuarios/${usuarioItem.id}`} style={{ color: 'black', textDecoration: 'none' }}>
-                            <Card className="my-1">
-                                <Card.Body stlye={{ maxWidth: '90%' }}>
-                                    <Card.Title>{usuarioItem.tlfNumber}</Card.Title>
-                                    <Card.Subtitle className="text-muted">
-                                        <p>DNI: {usuarioItem.datosVecino.dni}<br />
-                                            Dirección: {usuarioItem.datosVecino.piso}{usuarioItem.datosVecino.letra}<br />
-                                            Rol: <RolesList roles={usuarioItem.roles} /></p>
-                                    </Card.Subtitle>
-                                </Card.Body>
-                                <div className="arrow" style={{
-                                    position: 'absolute',
-                                    right: '20px',
-                                    top: '50%',
-                                    transform: 'translateY(-50%)',
-                                    fontSize: '2rem'
-                                }}>
-                                    <ArrowRight color="royalblue" />
-                                </div>
-                            </Card>
-                        </Link>
-                    </Col>
-                ))}
+                {usuarioslist.slice().reverse()
+                    .filter((usuarioItem) => !usuarioItem.roles.some((role) => role.nombre === "ROLE_ADMIN"))
+                    .map((usuarioItem) => (
+                        <Col key={usuarioItem.id} lg={4}>
+                            {/* Poner un link para modificar */}
+                            <Link to={`/gestionusuarios/${usuarioItem.id}`} style={{ color: 'black', textDecoration: 'none' }}>
+                                <Card className="my-1">
+                                    <Card.Body stlye={{ maxWidth: '90%' }}>
+                                        <Card.Title>{usuarioItem.tlfNumber}</Card.Title>
+                                        <Card.Subtitle className="text-muted">
+                                            <p>DNI: {usuarioItem.datosVecino.dni}<br />
+                                                Dirección: {usuarioItem.datosVecino.piso}{usuarioItem.datosVecino.letra}<br />
+                                                Rol: <RolesList roles={usuarioItem.roles} /></p>
+                                        </Card.Subtitle>
+                                    </Card.Body>
+                                    <div className="arrow" style={{
+                                        position: 'absolute',
+                                        right: '20px',
+                                        top: '50%',
+                                        transform: 'translateY(-50%)',
+                                        fontSize: '2rem'
+                                    }}>
+                                        <ArrowRight color="royalblue" />
+                                    </div>
+                                </Card>
+                            </Link>
+                        </Col>
+                    ))}
             </Row>
         </Container>
     )
