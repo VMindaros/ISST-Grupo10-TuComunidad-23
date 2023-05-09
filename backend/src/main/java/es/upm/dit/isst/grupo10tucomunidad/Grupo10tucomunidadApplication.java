@@ -155,14 +155,14 @@ public class Grupo10tucomunidadApplication {
 	public CommandLineRunner initialUsuarioData(UsuarioRepository usuarioRespository) {
 		return (args) -> {
 			usuarioRespository.save(new Usuario(
-					"000000000",
-					"$2a$12$oH/Ci..a5Tz8pjNhZesP3..BUIvGy4SU89M4JSOpbo8j7w.04W.FG"));
+					"625654112",
+					"$2a$12$bN7wqrvRDxTbWUge5RtJd.WKeMHp/Lw2XIb7ipV8O8yB8Pl4yPbDO"));
 			usuarioRespository.save(new Usuario(
-					"111111111",
-					"$2a$12$oH/Ci..a5Tz8pjNhZesP3..BUIvGy4SU89M4JSOpbo8j7w.04W.FG"));
+					"612302269",
+					"$2a$12$bN7wqrvRDxTbWUge5RtJd.WKeMHp/Lw2XIb7ipV8O8yB8Pl4yPbDO"));
 			usuarioRespository.save(new Usuario(
-					"222222222",
-					"$2a$12$oH/Ci..a5Tz8pjNhZesP3..BUIvGy4SU89M4JSOpbo8j7w.04W.FG"));
+					"693551174",
+					"$2a$12$bN7wqrvRDxTbWUge5RtJd.WKeMHp/Lw2XIb7ipV8O8yB8Pl4yPbDO"));
 		};
 	}
 
@@ -197,21 +197,21 @@ public class Grupo10tucomunidadApplication {
 	public CommandLineRunner initialPeticionRegistroData(PeticionRegistroRepository prRepo) {
 		return (args) -> {
 			prRepo.save(new PeticionVecino(
-					"444444444",
+					"639851263",
 					"$2a$12$WpaRpwjONum/Z3WXgikhaeJEqIN3DwxJfFH8h2hxw0xvZ2rmVaEjC",
 					9,
 					"A",
 					"53691215S",
 					null));
 			prRepo.save(new PeticionVecino(
-					"555555555",
+					"685154478",
 					"$2a$12$WpaRpwjONum/Z3WXgikhaeJEqIN3DwxJfFH8h2hxw0xvZ2rmVaEjC",
 					8,
 					"B",
 					"44037514N",
 					null));
 			prRepo.save(new PeticionVecino(
-					"666666666",
+					"685369941",
 					"$2a$12$WpaRpwjONum/Z3WXgikhaeJEqIN3DwxJfFH8h2hxw0xvZ2rmVaEjC",
 					7,
 					"C",
@@ -225,21 +225,21 @@ public class Grupo10tucomunidadApplication {
 		return (args) -> {
 			String[] instructionArr = {
 					// ADMIN
-					"SELECT @userId := id FROM usuarios WHERE tlf_number = '000000000' ORDER BY id DESC LIMIT 1",
+					"SELECT @userId := id FROM usuarios WHERE tlf_number = '625654112' ORDER BY id DESC LIMIT 1",
 					"SELECT @roleId1 := id FROM roles WHERE nombre = 0",
 					"INSERT INTO usuarios_roles (usuarios_id, roles_id) VALUES (@userId, @roleId1)",
 					"SELECT @datosvecinoId := id FROM datosvecino WHERE dni = '38347413L'",
 					"INSERT INTO usuarios_datos (usuarios_id, datosvecino_id) VALUES (@userId, @datosvecinoId)",
 
 					// PRESIDENTE
-					"SELECT @userId := id FROM usuarios WHERE tlf_number = '111111111' ORDER BY id DESC LIMIT 1",
+					"SELECT @userId := id FROM usuarios WHERE tlf_number = '612302269' ORDER BY id DESC LIMIT 1",
 					"SELECT @roleId1 := id FROM roles WHERE nombre = 1",
 					"INSERT INTO usuarios_roles (usuarios_id, roles_id) VALUES (@userId, @roleId1)",
 					"SELECT @datosvecinoId := id FROM datosvecino WHERE dni = '86904624K'",
 					"INSERT INTO usuarios_datos (usuarios_id, datosvecino_id) VALUES (@userId, @datosvecinoId)",
 
 					// VECINO
-					"SELECT @userId := id FROM usuarios WHERE tlf_number = '222222222' ORDER BY id DESC LIMIT 1",
+					"SELECT @userId := id FROM usuarios WHERE tlf_number = '693551174' ORDER BY id DESC LIMIT 1",
 					"SELECT @roleId1 := id FROM roles WHERE nombre = 2",
 					"INSERT INTO usuarios_roles (usuarios_id, roles_id) VALUES (@userId, @roleId1)",
 					"SELECT @datosvecinoId := id FROM datosvecino WHERE dni = '41410277L'",
