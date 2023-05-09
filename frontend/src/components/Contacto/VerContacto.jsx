@@ -15,59 +15,63 @@ const VerContacto = (props) => {
 
                 <Row className="my-2">
 
-                {usuarioslist.map((usuarioItem) => {
-                if (usuarioItem.roles.some((role) => role.nombre === 'ROLE_PRESIDENTE')) {
-                return (
-                <Col>
-                    <Card className="flex-fill text-wrap my-1" style={{ backgroundColor: '#f2f2f2' }}>
-                        <Card.Body>
-                            <Card.Title className="text-center" href="#">Presidente</Card.Title>
-                                <Card.Subtitle className="mb-2 text-muted text-center">
-                                    <p>Contactos del presidente</p>
-                                 </Card.Subtitle>
-                                {usuarioItem.tlfNumber && (
-                                <Card.Text className="text-truncate">
-                                    <b>Teléfono:</b> {usuarioItem.tlfNumber}
-                                </Card.Text>
-                                )}
-                                <Card.Text className="text-truncate">
-                                    <b>Piso:</b> {usuarioItem.datosVecino.piso}{usuarioItem.datosVecino.letra}
-                                </Card.Text>
-                                <img src="/logocasastres.jpeg" alt="Imagen de perfil" className="float-end rounded-circle" width="50" height="50" style={{ marginTop: '-10px', marginRight: '230px' }} />
-                        </Card.Body>
-                    </Card>
-                </Col>
-                );
-                }
-                return null;
-                })}
+                    {usuarioslist.map((usuarioItem) => {
+                        if (usuarioItem.roles.some((role) => role.nombre === 'ROLE_PRESIDENTE')) {
+                            return (
+                                <Col>
+                                    <Card className="flex-fill text-wrap my-1" style={{ backgroundColor: '#f2f2f2' }}>
+                                        <Card.Body className="d-flex flex-column justify-content-center text-center">
+                                            <Card.Title href="#">Presidente</Card.Title>
+                                            <Card.Subtitle className="mb-2 text-muted">
+                                                <p>Contactos del presidente</p>
+                                            </Card.Subtitle>
+                                            {usuarioItem.tlfNumber && (
+                                                <Card.Text className="text-truncate">
+                                                    <b>Teléfono:</b> {usuarioItem.tlfNumber}
+                                                </Card.Text>
+                                            )}
+                                            {/*}
+      <Card.Text className="text-truncate">
+        <b>Piso:</b> {usuarioItem.datosVecino.piso}{usuarioItem.datosVecino.letra}
+      </Card.Text>
+      {*/}
+                                            <img src="/logocasastres.jpeg" alt="Imagen de perfil" className="mx-auto rounded-circle" width="50" height="50" style={{ marginTop: '-10px' }} />
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            );
+                        }
+                        return null;
+                    })}
 
-                {usuarioslist.map((usuarioItem) => {
-                if (usuarioItem.roles.some((role) => role.nombre === 'ROLE_ADMIN')) {
-                return (
-                <Col>
-                    <Card className="flex-fill text-wrap my-1" style={{ backgroundColor: '#f2f2f2' }}>
-                        <Card.Body>
-                            <Card.Title className="text-center" href="#">Administrador</Card.Title>
-                                <Card.Subtitle className="mb-2 text-muted text-center">
-                                    <p>Contactos del administrador</p>
-                                 </Card.Subtitle>
-                                {usuarioItem.tlfNumber && (
-                                <Card.Text className="text-truncate">
-                                    <b>Teléfono:</b> {usuarioItem.tlfNumber}
-                                </Card.Text>
-                                )}
-                                <Card.Text className="text-truncate">
-                                    <b>Piso:</b> {usuarioItem.datosVecino.piso}{usuarioItem.datosVecino.letra}
-                                </Card.Text>
-                                <img src="/logocasastres.jpeg" alt="Imagen de perfil" className="float-end rounded-circle" width="50" height="50" style={{ marginTop: '-10px', marginRight: '230px' }} />
-                        </Card.Body>
-                    </Card>
-                </Col>
-                );
-                }
-                return null;
-                })}
+                    {usuarioslist.map((usuarioItem) => {
+                        if (usuarioItem.roles.some((role) => role.nombre === 'ROLE_ADMIN')) {
+                            return (
+                                <Col>
+                                    <Card className="flex-fill text-wrap my-1" style={{ backgroundColor: '#f2f2f2' }}>
+                                        <Card.Body className="d-flex flex-column justify-content-center text-center">
+                                            <Card.Title href="#">Administrador</Card.Title>
+                                            <Card.Subtitle className="mb-2 text-muted">
+                                                <p>Contactos del administrador</p>
+                                            </Card.Subtitle>
+                                            {usuarioItem.tlfNumber && (
+                                                <Card.Text className="text-truncate">
+                                                    <b>Teléfono:</b> {usuarioItem.tlfNumber}
+                                                </Card.Text>
+                                            )}
+                                            {/*}
+      <Card.Text className="text-truncate">
+        <b>Piso:</b> {usuarioItem.datosVecino.piso}{usuarioItem.datosVecino.letra}
+      </Card.Text>
+      {*/}
+                                            <img src="/logocasastres.jpeg" alt="Imagen de perfil" className="mx-auto rounded-circle" width="50" height="50" style={{ marginTop: '-10px' }} />
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            );
+                        }
+                        return null;
+                    })}
 
 
                 </Row>
