@@ -12,10 +12,10 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "peticionesregistro",
-       uniqueConstraints = {
-           @UniqueConstraint(columnNames = "tlfNumber")
-       })
+@Table(name = "peticionesregistro", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "tlfNumber"),
+        @UniqueConstraint(columnNames = "dni")
+})
 public class PeticionVecino {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
