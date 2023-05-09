@@ -39,7 +39,7 @@ const VerJuntas = (props) => {
                             <Card.Body>
                                 <Card.Title href="#">{juntaItem.titulo}</Card.Title>
                                 <Card.Subtitle className="text-muted">
-                                    <p>Creado el {juntaItem.fechaCreacion} por Usuario</p>
+                                    <p>Creado el {juntaItem.fechaCreacion} por Presidente</p>
                                 </Card.Subtitle>
                                 <Card.Text>{juntaItem.descripcion}</Card.Text>
                                 {}
