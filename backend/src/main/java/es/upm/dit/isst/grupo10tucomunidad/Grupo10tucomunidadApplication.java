@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import es.upm.dit.isst.grupo10tucomunidad.model.Noticia;
 import es.upm.dit.isst.grupo10tucomunidad.model.PeticionVecino;
 import es.upm.dit.isst.grupo10tucomunidad.model.Rol;
+import es.upm.dit.isst.grupo10tucomunidad.model.Junta;
 import es.upm.dit.isst.grupo10tucomunidad.repository.NoticiaRepository;
 import es.upm.dit.isst.grupo10tucomunidad.repository.PeticionRegistroRepository;
 import es.upm.dit.isst.grupo10tucomunidad.repository.RolRepository;
@@ -25,6 +26,8 @@ import es.upm.dit.isst.grupo10tucomunidad.model.DatosVecino;
 import es.upm.dit.isst.grupo10tucomunidad.model.ERol;
 import es.upm.dit.isst.grupo10tucomunidad.repository.ComentarioRepository;
 import es.upm.dit.isst.grupo10tucomunidad.repository.DatosVecinoRepository;
+import es.upm.dit.isst.grupo10tucomunidad.repository.JuntaRepository;
+
 
 @SpringBootApplication
 public class Grupo10tucomunidadApplication {
