@@ -47,8 +47,10 @@ const UnaNoticia = (props) => {
                 <div className="news-button">
                     <Link to={'/noticias'}>
                         <Button>Volver</Button>
-                        <Button onClick={() => UserService.remove(noticiaId)}>Borrar</Button>
                     </Link>
+                </div>
+                <div className="d-flex justify-content-center">
+                <img src="/logocasastres.jpeg" alt="Imagen de perfil" className="mx-auto rounded-circle" width="80" height="80" style={{ marginTop: '320px' }} />
                 </div>
             </Row>
         </Container>
