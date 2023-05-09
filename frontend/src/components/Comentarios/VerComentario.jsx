@@ -20,7 +20,7 @@ const VerComentario = (props) => {
                                 <Col>
                                     <Card className="flex-fill text-wrap">
                                         <Card.Body >
-                                            <Card.Subtitle className="text-muted">Usuario XYZ respondió:</Card.Subtitle>
+                                            <Card.Subtitle className="text-muted">Vecino respondió:</Card.Subtitle>
                                             <Card.Text className="text-truncate">{comentarioItem.descripcion}</Card.Text>
                                         </Card.Body>
                                     </Card>

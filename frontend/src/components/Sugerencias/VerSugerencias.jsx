@@ -27,7 +27,7 @@ const VerSugerencias = (props) => {
                             <Card.Body>
                                 <Card.Title href="#">{sugerenciasItem.titulo}</Card.Title>
                                 <Card.Subtitle className="text-muted">
-                                    <p>Creado el {sugerenciasItem.fechaCreacion} por Usuario</p>
+                                    <p>Creado el {sugerenciasItem.fechaCreacion} por Vecino</p>
 
                                 </Card.Subtitle>
                                 <Card.Text>{sugerenciasItem.descripcion}</Card.Text>
