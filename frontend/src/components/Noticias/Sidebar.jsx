@@ -13,7 +13,7 @@ const Sidebar = (props) => {
         const userData = props.userData
 
     let compruebaRole = false;
-    if (userData?.roles.includes('ROLE_ADMIN') || userData?.roles.includes('ROLE_PRESIDENTE')) {
+    if (userData?.roles.includes('ROLE_ADMIN')) {
         compruebaRole = true;
     }
 
