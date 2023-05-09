@@ -51,8 +51,22 @@ class UserService {
         await fetch(`/noticias/${noticiaId}`, {
             method: 'DELETE',
             headers: authHeader()
-            
         });
+    }
+    async getPeticiones() {
+        const response = await fetch(API_URL + "admisionregistro", {
+            method: "GET",
+            headers: authHeader()
+        });
+        return response.json();
+    }
+
+    async deletePeticion(id) {
+        const response = await fetch(API_URL + `admisionregistro/${id}`, {
+            method: 'DELETE',
+            headers: authHeader()
+        });
+        return 1;
     }
 }
 

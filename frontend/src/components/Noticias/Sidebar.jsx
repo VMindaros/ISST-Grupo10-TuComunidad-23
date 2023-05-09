@@ -52,7 +52,7 @@ const Sidebar = (props) => {
                         <NavLink to="/gestionusuarios" activeclassname="activeClicked">
                             <CDBSidebarMenuItem icon="users-cog">Gestión de usuarios</CDBSidebarMenuItem>
                         </NavLink>
-                        <NavLink>
+                        <NavLink to="/admisionregistro">
                             <CDBSidebarMenuItem icon="check">Admisión de registros</CDBSidebarMenuItem>
                         </NavLink>
                         <hr/>

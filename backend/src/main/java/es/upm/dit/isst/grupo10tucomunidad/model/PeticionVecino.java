@@ -40,6 +40,9 @@ public class PeticionVecino {
     @Lob
     private byte[] adjunto;
 
+    public PeticionVecino() {
+    }
+
     public PeticionVecino(String tlfNumber, String password, int piso, String letra, String dni, byte[] adjunto) {
         this.tlfNumber = tlfNumber;
         this.password = password;

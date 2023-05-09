@@ -19,6 +19,7 @@ import { useRef } from 'react';
 import GestionUsuario from './components/Administrador/GestionUsuario';
 import VerUnUsuario from './components/Administrador/VerUnUsuario';
 import PeticionRegistro from './components/Login/PeticionRegistro';
+import AdminisionUsuario from './components/Administrador/AdminisionUsuario';
 
 function App() {
     const location = useLocation();
@@ -28,7 +29,8 @@ function App() {
     const [juntaslist, setJuntaslist] = useState([]);
     const [votoslist, setVotosList] = useState([]);
     const [usuarioslist, setUsuarioslist] = useState([]);
-    const user = useRef(null);
+    const [peticioneslist, setPeticioneslist] = useState([]);
+    const user = useRef(null); 
     
 
     useEffect(() => {
@@ -107,12 +109,18 @@ function App() {
                 setUsuarioslist(usuariosData);
             }
 
+            const fetchPeticiones = async () => {
+                const peticionesData = await UserService.getPeticiones();
+                setPeticioneslist(peticionesData);
+            }
+
             fetchUsuarios();
             fetchNoticias();
             fetchSugerencias();
             fetchComentario();
             fetchJuntas();
             fetchVotos();
+            fetchPeticiones();
 
             const intervalNoticias = setInterval(fetchNoticias, 10000);
             const intervalSuerencias = setInterval(fetchSugerencias, 10000);
@@ -120,6 +128,7 @@ function App() {
             const intervalJuntas = setInterval(fetchJuntas, 10000);
             const intervalVotos = setInterval(fetchVotos, 10000);
             const intervalUsuarios = setInterval(fetchUsuarios, 10000);
+            const intervalPeticiones = setInterval(fetchPeticiones, 10000);
 
             return () => {
                 clearInterval(intervalNoticias);
@@ -127,7 +136,8 @@ function App() {
                 clearInterval(intervalComentario);
                 clearInterval(intervalJuntas);
                 clearInterval(intervalVotos);
-                clearInterval(intervalUsuarios)
+                clearInterval(intervalUsuarios);
+                clearInterval(intervalPeticiones);
             };
         }
     }, [location]);
@@ -156,8 +166,9 @@ function App() {
 
                     <Route path="/contacto" element={<VerContacto usuarioslist={usuarioslist}/>} />
                     <Route path="/login" element={<Login location={location}/>} />
-                    <Route path="peticionregistro" element={<PeticionRegistro />}/>
+                    <Route path="/peticionregistro" element={<PeticionRegistro />}/>
                     <Route path="/register" element={<Register/>} />
+                    <Route path="/admisionregistro" element={<AdminisionUsuario peticioneslist={peticioneslist}/>}/>
                     <Route path="/*" element={<Navigate to="/noticias"/>} />
                 </Routes>
         </div>
